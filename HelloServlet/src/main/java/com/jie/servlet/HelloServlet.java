@@ -8,18 +8,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(urlPatterns = "/h")
+@WebServlet(urlPatterns = "/hello")
 public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
+        resp.setCharacterEncoding("utf-8");
         // 设置响应类型
 
         PrintWriter writer = resp.getWriter();
         // 获取输出流
-        writer.write("hello,"+ req.getParameter("name"));
-//        // 写入响应,通过url传入元素可以做出相应输出，但是不传入会输出空
+        String name = req.getParameter("name");
+        if (name == null) {
+            name = "陌生人";
+        }
 
+        resp.getWriter().write("<h1>Hello, " + name + "!</h1>");
         writer.flush();
         // flush强制输出
     }
