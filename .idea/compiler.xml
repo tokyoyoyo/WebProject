@@ -10,5 +10,13 @@
         <module name="ModelViewController" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MVCframe" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="MVCframe" options="" />
+    </option>
   </component>
 </project>
